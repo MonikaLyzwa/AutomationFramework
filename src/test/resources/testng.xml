@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="FirstTestSuite" verbose="1" >
+  <test name="FirstTest" >
+    <classes>
+       <class name="com.form.test.FirstTest">
+      </class>
+    </classes>
+  </test>
+  
+    <test name="SecondTest" >
+    <classes>
+       <class name="com.form.test.SecondTest">
+      </class>
+    </classes>
+  </test>
+</suite>
