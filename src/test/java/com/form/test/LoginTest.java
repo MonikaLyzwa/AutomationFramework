@@ -17,6 +17,7 @@ public class LoginTest extends BaseTest {
 		//Push Sign In button and wait for page profile to load
 		@SuppressWarnings("unused")
 		ExercisePage exercisePage = logInPage.pushSignInButton();
+		exercisePage.waitForExercisePageToLoad();
 		//Fill up name, surname, email and age
 		//Push Submit button 
 		//Verifications
