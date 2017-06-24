@@ -3,6 +3,7 @@ package com.form.test;
 import org.testng.annotations.Test;
 
 import com.form.test.base.BaseTest;
+import com.form.test.pages.ExercisePage;
 import com.form.test.pages.LoginPage;
 
 public class LoginTest extends BaseTest {
@@ -14,7 +15,8 @@ public class LoginTest extends BaseTest {
 		//Fill up login and password
 		logInPage.fillUpLoginAndPassword("monika", "haslo");
 		//Push Sign In button and wait for page profile to load
-		logInPage.pushSignInButton();
+		@SuppressWarnings("unused")
+		ExercisePage exercisePage = logInPage.pushSignInButton();
 		//Fill up name, surname, email and age
 		//Push Submit button 
 		//Verifications
