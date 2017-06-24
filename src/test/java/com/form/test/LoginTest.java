@@ -10,10 +10,16 @@ public class LoginTest extends BaseTest {
 	public void positiveLoginTest(){
 		LoginPage logInPage = new LoginPage(driver);
 		//Open form test page
+		logInPage.openLogInPage();
+		//Fill up login and password
+		logInPage.fillUpLoginAndPassword("monika", "haslo");
+		//Push Sign In button and wait for page profile to load
+		logInPage.pushSignInButton();
 		//Fill up name, surname, email and age
 		//Push Submit button 
 		//Verifications
 		//Verify all required fields filed up
+		//Clear all filled in fields
 	}
 
 }
