@@ -1,11 +1,24 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
 <suite name="FirstTestSuite" verbose="1" >
-  <test name="LoginTest" >
+
+  <test name="LoginTest-FF" >
+  	<parameter name="browser"  value="firefox"/>
     <classes>
        <class name="com.form.test.LoginTest">
        <methods>
-       	<exclude name = "positiveLogInTest"></exclude>
+       	<include name = "positiveLogInTest"></include>
+       </methods>
+      </class>
+    </classes>
+  </test>
+  
+  <test name="LoginTest-CH" >
+  <parameter name="browser"  value="chrome"/>
+    <classes>
+       <class name="com.form.test.LoginTest">
+       <methods>
+       	<include name = "positiveLogInTest"></include>
        </methods>
       </class>
     </classes>
