@@ -19,11 +19,12 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class CsvDataProvider {
 
-	public CsvDataProvider() {
+	public Iterator<Object[]> CsvDataProvider() {
 		
 		@DataProvider(name = "CsvDataProvider")
 		public static Iterator<Object>[]> provideData(Method method) {
 			List<Object[]> list = new ArrayList<Object[]>();
+			Method method;
 			String pathname = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "test.data"
 					+ File.separator + method.getDeclaringClass().getSimpleName() + "_" + method.getName() + ".csv";
 			File file = new File(pathname);
@@ -33,7 +34,7 @@ public class CsvDataProvider {
 				if (keys != null){
 					String[] dataParts;
 					while ((dataParts = reader.readNext()) != null){
-						Map<String; String> testData = new HashMap<String, String>();
+						Map<String, String> testData = new HashMap<String, String>();
 						for (int i = 0; i <keys.length; i++){
 							testData.put (keys[i], dataParts[i]);
 						}
@@ -51,6 +52,6 @@ public class CsvDataProvider {
 			
 		}
 		
-	    }
+	   }
 
 }

@@ -1,9 +1,12 @@
 package com.form.test;
 
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.form.test.base.BaseTest;
+import com.form.test.base.CsvDataProvider;
 import com.form.test.pages.ExercisePage;
 import com.form.test.pages.LoginPage;
 
@@ -43,16 +46,23 @@ public class LoginTest extends BaseTest {
 		//Clear all filled in fields
 	}
 		
-		@Test
-		public void negativeLoginTest(){
+		@Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class)
+		public void negativeLoginTest(Map<String, String> testData){
 			String expectedErrorMessage = "Login incorrect.";
+			String testNumber = testData.get("no");
+			String login = testData.get("login");
+			String password = testData.get("password");
+			String description = testData.get("description");
+			
+			System.out.println("Test No #" + testNumber + "for" + description + "Where\nEmail:" + login + "\nPassword:" + password);
+			
 			LoginPage logInPage = new LoginPage(driver);
 			
 			//Open form test page
 			logInPage.openLogInPage();
 			
 			//Fill up login and password
-			logInPage.fillUpLoginAndPassword("monika", "haslo");
+			logInPage.fillUpLoginAndPassword("login", "password");
 			
 			//Push Sign In button and wait for page profile to load
 			logInPage.pushSignInButton();
