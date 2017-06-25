@@ -21,11 +21,13 @@ public class LoginPage extends BasePageObject<LoginPage> {
 	}
 	
 	public void fillUpLoginAndPassword (String login, String password){
+		System.out.println("Filling up email and password");
 		type(login, loginField);
 		type(password, passwordField);
 	}
 	
 	public ExercisePage pushSignInButton(){
+		System.out.println("Clicking on Sign in button");
 		clickBy(signInButton);
 		return new ExercisePage(driver);
 	
