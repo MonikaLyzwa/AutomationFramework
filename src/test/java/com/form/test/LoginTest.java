@@ -42,5 +42,25 @@ public class LoginTest extends BaseTest {
 		
 		//Clear all filled in fields
 	}
+		
+		@Test
+		public void negativeLoginTest(){
+			String expectedErrorMessage = "Login incorrect.";
+			LoginPage logInPage = new LoginPage(driver);
+			
+			//Open form test page
+			logInPage.openLogInPage();
+			
+			//Fill up login and password
+			logInPage.fillUpLoginAndPassword("monika", "haslo");
+			
+			//Push Sign In button and wait for page profile to load
+			logInPage.pushSignInButton();
+			
+			String errorMessage = logInPage.getLogInErrorMessage();
+			
+			Assert.assertTrue(errorMessage.contains(expectedErrorMessage), 
+					"Error message is not expected. Expected" + expectedErrorMessage + "nActual:" + errorMessage + ".");
+	}
 
 }

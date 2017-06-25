@@ -4,6 +4,9 @@
   <test name="LoginTest" >
     <classes>
        <class name="com.form.test.LoginTest">
+       <methods>
+       	<exclude name = "positiveLogInTest"></exclude>
+       </methods>
       </class>
     </classes>
   </test>
