@@ -13,22 +13,22 @@ public class BaseTest {
 	protected WebDriver driver;
 	protected Logger log;
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	protected void setUpClass(ITestContext ctx) {
 		String testName = ctx.getCurrentXmlTest().getName();
-		log = Logger.getLogger(testName);
+		//log = Logger.getLogger(testName);
 		
 	}
 	
 	@Parameters({"browser"})
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	protected void methodSetUp(String browser) {
 		log.info("Method set up");
 		System.out.println("Method set up");
 		driver = BrowserFactory.getDriver(browser);	
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	protected void methodTearDown() {
 		log.info("Method tear down");
 		driver.quit();

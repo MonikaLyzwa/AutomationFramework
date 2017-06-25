@@ -4,23 +4,28 @@
 
   <test name="LoginTest-FF" >
   	<parameter name="browser"  value="firefox"/>
+  	<groups>
+  	<run>
+  		<exclude name = "broken"></exclude>
+  	</run>
+  </groups>
     <classes>
        <class name="com.form.test.LoginTest">
-       <methods>
-       	<include name = "positiveLogInTest"></include>
-       </methods>
-      </class>
+       </class>
     </classes>
   </test>
   
   <test name="LoginTest-CH" >
   <parameter name="browser"  value="chrome"/>
+  <groups>
+  	<run>
+  		<exclude name = "negative"></exclude>
+  		<exclude name = "broken"></exclude>
+  	</run>
+  </groups>
     <classes>
        <class name="com.form.test.LoginTest">
-       <methods>
-       	<include name = "positiveLogInTest"></include>
-       </methods>
-      </class>
+       </class>
     </classes>
   </test>
 </suite>

@@ -14,7 +14,7 @@ import com.form.test.pages.LoginPage;
 
 
 public class LoginTest extends BaseTest {
-	@Test
+	@Test(priority = 1, groups = { "positive"})
 	public void positiveLoginTest(){
 		LoginPage logInPage = new LoginPage(driver);
 
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
 		//Clear all filled in fields
 	}
 		
-		@Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class)
+		@Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class, priority = 2, groups = { "negative", "broken"})
 		public void negativeLoginTest(Map<String, String> testData, Logger log){
 			String expectedErrorMessage = "Login incorrect.";
 			String testNumber = testData.get("no");
