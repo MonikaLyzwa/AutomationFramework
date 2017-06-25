@@ -8,7 +8,8 @@ public class BrowserFactory {
 
 	public static WebDriver getDriver(String browser) {
 		WebDriver driver;
-		System.out.println("Starting" + browser + "driver");
+		Object log;
+		((Object) log).info("Starting" + browser + "driver");
 		switch (browser) {
 		case "firefox":
 			System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");

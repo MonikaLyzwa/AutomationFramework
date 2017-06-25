@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
 
 import com.form.test.base.BaseTest;
 import com.form.test.base.CsvDataProvider;
@@ -32,7 +33,7 @@ public class LoginTest extends BaseTest {
 		
 		//Verifications
 	    //Verify title of the page is correct - Exercise - Form test
-		System.out.println("Verifications");
+		log.info("Verifications");
 		String actualTitle = exercisePage.getTitle();
 		Assert.assertTrue(expectedPageTitle.equals(actualTitle), 
 				"Page title is not expected.\nExpected:" + expectedPageTitle + "nActual:" + actualTitle);
@@ -47,14 +48,14 @@ public class LoginTest extends BaseTest {
 	}
 		
 		@Test(dataProvider = "CsvDataProvider", dataProviderClass = CsvDataProvider.class)
-		public void negativeLoginTest(Map<String, String> testData){
+		public void negativeLoginTest(Map<String, String> testData, Logger log){
 			String expectedErrorMessage = "Login incorrect.";
 			String testNumber = testData.get("no");
 			String login = testData.get("login");
 			String password = testData.get("password");
 			String description = testData.get("description");
 			
-			System.out.println("Test No #" + testNumber + "for" + description + "Where\nEmail:" + login + "\nPassword:" + password);
+			log.info("Test No #" + testNumber + "for" + description + "Where\nEmail:" + login + "\nPassword:" + password);
 			
 			LoginPage logInPage = new LoginPage(driver);
 			

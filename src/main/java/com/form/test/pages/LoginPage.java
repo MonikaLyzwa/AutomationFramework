@@ -14,7 +14,7 @@ public class LoginPage extends BasePageObject<LoginPage> {
 	private By errorMessage = By.xpath("//span[@data-automation-id='login-failure-help-message']");
 
 	public LoginPage(WebDriver driver) {
-		super(driver);	
+		super(driver, log);	
 	}
 	
 	public void openLogInPage() {
@@ -30,7 +30,7 @@ public class LoginPage extends BasePageObject<LoginPage> {
 	public ExercisePage pushSignInButton(){
 		System.out.println("Clicking on Sign in button");
 		clickBy(signInButton);
-		return new ExercisePage(driver);
+		return new ExercisePage(driver, log);
 		
 	}
 

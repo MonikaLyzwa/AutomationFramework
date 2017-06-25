@@ -7,13 +7,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.log4testng.Logger;
 
 public class BasePageObject<T> {
 	protected WebDriver driver;
 	protected WebDriverWait wait;
+	protected static Logger log;
 	
-	protected BasePageObject(WebDriver driver){
+	@SuppressWarnings("static-access")
+	protected BasePageObject(WebDriver driver, Logger log){
 		this.driver = driver;
+		this.log = log;
 		wait = new WebDriverWait (driver,40);
 	}
 	

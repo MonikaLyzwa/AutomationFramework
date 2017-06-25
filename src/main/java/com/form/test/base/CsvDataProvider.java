@@ -22,7 +22,7 @@ public class CsvDataProvider {
 	public Iterator<Object[]> CsvDataProvider() {
 		
 		@DataProvider(name = "CsvDataProvider")
-		public static Iterator<Object>[]> provideData(Method method) {
+		//public static Iterator<Object>[]> provideData(Method method) {
 			List<Object[]> list = new ArrayList<Object[]>();
 			Method method;
 			String pathname = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "test.data"
@@ -54,4 +54,3 @@ public class CsvDataProvider {
 		
 	   }
 
-}
