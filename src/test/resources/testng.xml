@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
 <suite name="FirstTestSuite" parallel = "tests" thread-count = "2">
+	<listeners>
+		<listener class-name = "come.form.test.base.TestListener"></listener>
+	</listeners>
 
   <test name="LoginTest-FF" >
   	<parameter name="browser"  value="firefox"/>
