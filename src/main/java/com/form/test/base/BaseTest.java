@@ -12,8 +12,7 @@ public class BaseTest {
 	@BeforeMethod
 	protected void methodSetUp(String browser) {
 		System.out.println("Method set up");
-		driver = BrowserFactory.getDriver(browser);
-		
+		driver = BrowserFactory.getDriver(browser);	
 	}
 
 	@AfterMethod
