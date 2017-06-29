@@ -8,8 +8,12 @@ import com.form.test.base.BasePageObject;
 
 public class ExercisePage extends BasePageObject<ExercisePage>{
 	private By submitExerciseButton = By.xpath ("//button[@id = 'submitExercise']");
-	private By clearExerciseButton = By.xpath ("//a[@class = 'form-test-link']");
+	private By clearExerciseButton = By.xpath ("//button[@class = 'form-test-link']");
 	private By exerciseNameText = By.xpath ("//h1[@class='exercise-name']");
+	private By nameText = By.xpath ("//h1[@class='nameField-name']");
+	private By surnameText = By.xpath ("//h1[@class='surnameField-name']");
+	private By email = By.xpath ("//h1[@class='emailField-name']");
+	private By age = By.xpath ("//h1[@class='ageField-name']");
 
 	public ExercisePage(WebDriver driver, Logger log) {
 		super(driver, log);
@@ -30,5 +34,28 @@ public class ExercisePage extends BasePageObject<ExercisePage>{
 		}
 		return false;
 	}
-
+	
+	public void fillUpLAllRequiredFields (String nameText, String surnameText, String email, Integer age){
+		System.out.println("Filling up all required fields");
+		type(nameText, nameField);
+		type(surnameText, surnameField);
+		type(email, emailField);
+		type(age, ageField);
+		
+	}
+	
+	public ExercisePage pushClearButton(){
+		System.out.println("Clicking on Submit button");
+		clickBy(submitExerciseButton);
+		return new ExercisePage(driver, log);
+		
+	}
+	
+	public ExercisePage pushSubmitButton(){
+		System.out.println("Clicking on Clear button");
+		clickBy(clearExerciseButton);
+		return new ExercisePage(driver, log);
+		
+	}
+		
 }
